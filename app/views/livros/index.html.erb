@@ -1,14 +1,43 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Livros</h1>
-
-<div id="livros">
-  <% @livros.each do |livro| %>
-    <%= render livro %>
-    <p>
-      <%= link_to "Show this livro", livro %>
-    </p>
+<div class="container">
+  <% if flash[:error].present? %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:error] %>
+    </div>
   <% end %>
-</div>
 
-<%= link_to "New livro", new_livro_path %>
+  <div class="page-wrapper">
+    <div class="page-header d-print-none">
+      <div class="container-xl">
+        <div class="row g-2 align-items-center">
+          <div class="col">
+            <h2 class="page-title">
+              Livros
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="row row-cards">
+          <% @livros.each do |livro| %>
+            <div class="col-sm-6 col-lg-4 mb-3">
+              <div class="card card-sm">
+                <img src="https://preview.tabler.io/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" class="card-img-top">
+                <div class="card-body">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div><%= livro.nome %></div>
+                      <div class="text-secondary"><%= livro.descricao %></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

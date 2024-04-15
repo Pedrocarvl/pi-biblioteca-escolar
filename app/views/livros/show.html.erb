@@ -1,10 +1,51 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @livro %>
-
-<div>
-  <%= link_to "Edit this livro", edit_livro_path(@livro) %> |
-  <%= link_to "Back to livros", livros_path %>
-
-  <%= button_to "Destroy this livro", @livro, method: :delete %>
+<div class="page-wrapper">
+  <div class="page-header d-print-none">
+    <div class="container-xl">
+      <div class="row g-2 align-items-center">
+        <div class="col">
+          <h2 class="page-title">
+            Livros
+          </h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-auto ms-auto d-print-none">
+          <div class="d-flex">
+            <%= link_to "Back to livros", livros_path, class: "btn btn-sm btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Livro info</h3>
+        </div>
+        <div class="card-body">
+          <div class="datagrid">
+            <div class="datagrid-item">
+              <div class="datagrid-title">Livro</div>
+              <div class="datagrid-content">
+                <div class="d-flex align-items-center">
+                  <%= link_to @livro['avatar'], target: :_blank do %>
+                    <%= image_tag(@livro['avatar'], class: "avatar avatar-xs me-2 rounded") %>
+                  <% end %>
+                  <%= @livro['first_name'] %> <%= @livro['last_name'] %>
+                </div>
+              </div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Name</div>
+              <div class="datagrid-content"><%= @livro['first_name'] %> <%= @livro['last_name'] %></div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Email</div>
+              <div class="datagrid-content"><%= @livro['email'] %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

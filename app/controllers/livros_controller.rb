@@ -3,7 +3,7 @@ class LivrosController < ApplicationController
 
   # GET /livros or /livros.json
   def index
-    @livros = Livro.all
+    @pagy, @livros = pagy(Livro.all)
   end
 
   # GET /livros/1 or /livros/1.json
