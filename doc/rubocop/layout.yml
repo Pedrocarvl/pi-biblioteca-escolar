@@ -1,0 +1,69 @@
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  Description: 'On multi-line calls, start lines by the dot.'
+  EnforcedStyle: leading
+
+Layout/DefEndAlignment:
+  Description: 'Align end with def.'
+  EnforcedStyleAlignWith: def
+
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Layout/EndAlignment:
+  Description: 'Align end with starting variable or keyword.'
+  EnforcedStyleAlignWith: variable
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  Description: 'Align private/protected statements with methods definitions.'
+  EnforcedStyle: normal
+
+Layout/IndentationWidth:
+  Description: 'Indent with 2 spaces.'
+  Width: 2
+
+Layout/LineLength:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Description: >-
+    Checks indentation of method calls with the dot operator
+    that span more than one line.
+  EnforcedStyle: indented
+  Exclude:
+    - spec/**/*
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/RedundantLineBreak:
+  Enabled: false
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Description: 'Add a space before and after equal in default parameters definition.'
+  EnforcedStyle: space
+
+Layout/SpaceBeforeBlockBraces:
+  Description: 'Add a space before block braces.'
+  EnforcedStyle: space
+
+Layout/SpaceInsideBlockBraces:
+  Description: 'Add a space inside block braces.'
+  EnforcedStyle: space
+
+Layout/SpaceInsideHashLiteralBraces:
+  Description: 'Add a space inside hashes braces.'
+  EnforcedStyle: space
+
+Layout/SpaceInsideStringInterpolation:
+  Description: 'Do not add a space inside string interpolation braces.'
+  EnforcedStyle: no_space
+
+Layout/TrailingEmptyLines:
+  Description: 'Add a new line at the end of each file.'
+  EnforcedStyle: final_newline

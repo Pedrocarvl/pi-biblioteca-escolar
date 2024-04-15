@@ -1,0 +1,27 @@
+Lint/AmbiguousBlockAssociation:
+  AllowedMethods: [change]
+
+Lint/RedundantCopEnableDirective:
+  Enabled: false
+
+Lint/MissingCopEnableDirective:
+  Enabled: false
+
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
+
+Lint/SafeNavigationConsistency:
+  Description: >-
+    Check to make sure that if safe navigation is used for a method
+    call in an `&&` or `||` condition that safe navigation is used
+    for all method calls on that same object.
+  AllowedMethods:
+    - present?
+    - blank?
+    - presence
+    - try
+    - try!
+
+Lint/UnusedMethodArgument:
+  Description: 'Checks for unused method arguments.'
+  AllowUnusedKeywordArguments: true

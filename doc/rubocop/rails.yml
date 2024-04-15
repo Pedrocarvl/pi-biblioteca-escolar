@@ -1,0 +1,26 @@
+Rails/DynamicFindBy:
+  Whitelist:
+    - find_by_email
+    - find_by_profile
+
+Rails/EnvironmentVariableAccess:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: true
+
+Rails/SkipsModelValidations:
+  AllowedMethods:
+    - touch
+  Exclude:
+    - spec/**/*
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging

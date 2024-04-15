@@ -1,0 +1,78 @@
+Style/AndOr:
+  Description: 'Always use && and ||.'
+  EnforcedStyle: always
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/models/concerns/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FloatDivision:
+  Description: 'For performing float division, coerce one side only.'
+  StyleGuide: '#float-division'
+  EnforcedStyle: single_coerce
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/GuardClause:
+  Description: 'Check for conditionals that can be replaced with guard clauses.'
+  MinBodyLength: 3
+
+Style/HashSyntax:
+  Description: 'Use the new hash syntax.'
+  EnforcedStyle: ruby19
+  EnforcedShorthandSyntax: either
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/MethodDefParentheses:
+  Description: 'Use def with parentheses when there are parameters.'
+  EnforcedStyle: require_parentheses
+
+Style/MissingElse:
+  Enabled: false
+
+Style/NilComparison:
+  EnforcedStyle: predicate
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Exclude:
+    - app/workers/*
+
+Style/Semicolon:
+  Description: 'Do not have multiple expressions on one line.'
+  AllowAsExpressionSeparator: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/WordArray:
+  Enabled: false
