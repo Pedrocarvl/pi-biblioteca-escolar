@@ -1,12 +1,12 @@
 <div class="container">
   <% if flash[:error].present? %>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert" tabindex="0">
       <%= flash[:error] %>
     </div>
   <% end %>
 
   <div class="page-wrapper">
-    <div class="page-header d-print-none">
+    <header class="page-header d-print-none" tabindex="0">
       <div class="container-xl">
         <div class="row g-2 align-items-center">
           <div class="col">
@@ -16,28 +16,28 @@
           </div>
         </div>
       </div>
-    </div>
+    </header>
     <!-- Page body -->
-    <div class="page-body">
+    <main class="page-body" tabindex="0">
       <div class="container-xl">
         <div class="row row-cards">
           <% @livros.each do |livro| %>
-            <div class="col-sm-6 col-lg-4 mb-3">
-              <div class="card card-sm">
-                <img src="https://preview.tabler.io/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" class="card-img-top">
-                <div class="card-body">
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <div><%= livro.nome %></div>
-                      <div class="text-secondary"><%= livro.descricao %></div>
+            <article class="col-sm-6 col-lg-4 mb-3">
+              <div class="card card-sm" tabindex="0">
+                <img src="https://preview.tabler.io/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" class="card-img-top" alt="Imagem de <%= livro.nome %>" tabindex="0">
+                <div class="card-body" tabindex="0">
+                  <div class="d-flex align-items-center" tabindex="0">
+                    <div tabindex="0">
+                      <h3 tabindex="0"><%= livro.nome %></h3>
+                      <p class="text-secondary" tabindex="0"><%= livro.descricao %></p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           <% end %>
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </div>
