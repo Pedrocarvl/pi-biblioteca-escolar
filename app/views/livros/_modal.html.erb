@@ -6,6 +6,9 @@
           <h5 class="modal-title"><%= livro.nome %></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <%= render 'livro', livro: livro %>
+        </div>
       </div>
     </div>
   </div>

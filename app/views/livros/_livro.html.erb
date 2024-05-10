@@ -1,12 +1,12 @@
-<div id="<%= dom_id livro %>">
-  <p>
-    <strong>Nome:</strong>
-    <%= livro.nome %>
-  </p>
-
-  <p>
-    <strong>Descricao:</strong>
-    <%= livro.descricao %>
-  </p>
-
+<div class="card-body">
+  <div class="datagrid">
+    <div class="datagrid-item">
+      <div class="datagrid-title">Nome</div>
+      <div class="datagrid-content"><%= livro.nome %></div>
+    </div>
+    <div class="datagrid-item">
+      <div class="datagrid-title">Descrição</div>
+      <div class="datagrid-content"><%= livro.descricao %></div>
+    </div>
+  </div>
 </div>

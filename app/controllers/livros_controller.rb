@@ -3,7 +3,7 @@ class LivrosController < ApplicationController
 
   # GET /livros or /livros.json
   def index
-    @pagy, @livros = pagy(Livro.all)
+    @pagy, @livros = pagy(Livro.left_joins(:usuario_livros).where(usuario_livros: { returned_at: nil }).distinct)
   end
 
   # GET /livros/1 or /livros/1.json
