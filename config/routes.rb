@@ -20,4 +20,6 @@ Rails.application.routes.draw do
       get :livros
     end
   end
+
+  namespace
 end
