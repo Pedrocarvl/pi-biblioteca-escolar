@@ -27,12 +27,10 @@ class LivrosController < ApplicationController
   def create
     @livro = Livro.new(livro_params)
 
-    respond_to do |format|
-      if @livro.save
-        redirect_to livros_path, notice: "Livro foi criado com sucesso."
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @livro.save
+      redirect_to livros_path, notice: "Livro foi criado com sucesso."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
