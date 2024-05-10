@@ -1,10 +1,7 @@
 <div class="container">
-  <% if flash[:error].present? %>
-    <div class="alert alert-danger" role="alert" tabindex="0">
-      <%= flash[:error] %>
-    </div>
-  <% end %>
-
+  <div class="row">
+    <%= render 'shared/notices', resource: current_usuario %>
+  </div>
   <div class="page-wrapper">
     <header class="page-header d-print-none" tabindex="0">
       <div class="container-xl">
@@ -14,6 +11,20 @@
               Livros
             </h2>
           </div>
+
+          <div class="col-auto ms-auto d-print-none">
+            <div class="d-flex">
+              <div class="me-3">
+                <div class="input-icon">
+                  <input type="text" value="" class="form-control" placeholder="Search…">
+                  <span class="input-icon-addon">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path></svg>
+                      </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -22,22 +33,27 @@
       <div class="container-xl">
         <div class="row row-cards">
           <% @livros.each do |livro| %>
-            <article class="col-sm-6 col-lg-4 mb-3">
-              <div class="card card-sm" tabindex="0">
-                <img src="https://preview.tabler.io/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" class="card-img-top" alt="Imagem de <%= livro.nome %>" tabindex="0">
-                <div class="card-body" tabindex="0">
-                  <div class="d-flex align-items-center" tabindex="0">
-                    <div tabindex="0">
-                      <h3 tabindex="0"><%= livro.nome %></h3>
-                      <p class="text-secondary" tabindex="0"><%= livro.descricao %></p>
+            <div class="col-sm-6 col-lg-4 mb-3">
+              <%= link_to livro_path(livro), data: { turbo_stream: true }, method: :get do %>
+                <div class="card card-sm">
+                  <img src="https://preview.tabler.io/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" class="card-img-top">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <div><%= livro.nome %></div>
+                        <div class="text-secondary"><%= livro.descricao %></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </article>
+              <% end %>
+            </div>
           <% end %>
         </div>
+        <%== pagy_bootstrap_nav(@pagy) %>
       </div>
     </main>
   </div>
 </div>
+
+<%= turbo_frame_tag 'modal' %>

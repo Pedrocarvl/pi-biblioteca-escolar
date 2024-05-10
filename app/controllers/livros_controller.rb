@@ -8,6 +8,10 @@ class LivrosController < ApplicationController
 
   # GET /livros/1 or /livros/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   # GET /livros/new

@@ -1,0 +1,51 @@
+<div class="container-xl mt-3">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Meus Livros</h3>
+    </div>
+    <div class="card-body border-bottom py-3">
+      <div class="d-flex">
+        <div class="ms-auto text-muted">
+          Search:
+          <div class="ms-2 d-inline-block">
+            <input type="text" class="form-control form-control-sm" aria-label="Search livro" id="searchTable">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table card-table table-vcenter text-nowrap datatable">
+        <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Emprestado em</th>
+          <th>Devolvido em</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if @livros.empty? %>
+          <tr>
+            <td colspan="4" class="text-center">Nenhum livro disponível</td>
+          </tr>
+        <% else %>
+          <% @livros.each do |livro| %>
+            <tr>
+              <td><%= livro.nome %></td>
+              <td><%= livro.descricao %></td>
+              <td><%= livro.borrowed_at ? l(livro.borrowed_at, format: :long) : "Não informado" %></td>
+              <td><%= livro.returned_at ? l(livro.returned_at, format: :long) : "Não devolvido" %></td>
+            </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer d-flex align-items-center">
+      <p class="m-0 text-muted">Mostrando <span><%= @livros.size %></span> de <span><%= @pagy.count %></span> registros</p>
+      <ul class="pagination m-0 ms-auto">
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </ul>
+    </div>
+  </div>
+</div>

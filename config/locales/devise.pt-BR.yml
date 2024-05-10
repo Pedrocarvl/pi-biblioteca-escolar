@@ -1,0 +1,53 @@
+pt:
+  devise:
+    confirmations:
+      confirmed: "Sua conta foi confirmada com sucesso. Agora você pode acessar o sistema."
+      send_instructions: "Você receberá um email com instruções para confirmação da sua conta em alguns minutos."
+      send_paranoid_instructions: "Se o seu email existir em nosso banco de dados, você receberá um email com instruções para confirmação da sua conta em alguns minutos."
+    failure:
+      already_authenticated: "Você já está autenticado."
+      inactive: "Sua conta não foi ativada ainda."
+      invalid: "Email ou senha inválidos."
+      locked: "Sua conta está bloqueada."
+      last_attempt: "Você tem mais uma tentativa antes de sua conta ser bloqueada."
+      not_found_in_database: "Email ou senha inválidos."
+      timeout: "Sua sessão expirou, por favor faça login novamente para continuar."
+      unauthenticated: "Você precisa fazer login ou se registrar antes de prosseguir."
+      unconfirmed: "Você precisa confirmar sua conta antes de continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções de confirmação"
+      reset_password_instructions:
+        subject: "Instruções de recuperação de senha"
+      unlock_instructions:
+        subject: "Instruções de desbloqueio"
+      email_changed:
+        subject: "Email alterado"
+      password_change:
+        subject: "Senha alterada"
+    omniauth_callbacks:
+      failure: "Não foi possível autenticar você pelo sistema %{kind} devido a '%{reason}'."
+      success: "Autenticado com sucesso pelo sistema %{kind}."
+    passwords:
+      no_token: "Você não pode acessar essa página diretamente, siga as instruções que foram enviadas para seu email."
+      send_instructions: "Você receberá um email com instruções sobre como resetar sua senha em alguns minutos."
+      send_paranoid_instructions: "Se o seu email existir em nosso banco de dados, você receberá um email com instruções sobre como resetar sua senha em alguns minutos."
+      updated: "Sua senha foi alterada com sucesso. Agora você está autenticado."
+      updated_not_active: "Sua senha foi alterada com sucesso."
+    registrations:
+      signed_up: "Você se registrou com sucesso."
+      signed_up_but_inactive: "Você se registrou com sucesso, mas sua conta ainda não foi ativada."
+      signed_up_but_locked: "Você se registrou com sucesso, mas sua conta está bloqueada."
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para seu email. Siga o link para ativar sua conta."
+      updated: "Seu cadastro foi atualizado com sucesso."
+      update_needs_confirmation: "Você alterou seu email, e nós precisamos verificar se é válido. Por favor, verifique seu novo email e siga as instruções para confirmar."
+      destroyed: "Sua conta foi cancelada com sucesso."
+    sessions:
+      usuario:
+        signed_in: "Login efetuado com sucesso."
+        signed_out: "Sessão encerrada com sucesso."
+        already_signed_out: "Sessão já foi encerrada anteriormente."
+    unlocks:
+      send_instructions: "Você receberá um email com instruções para desbloquear sua conta em alguns minutos."
+      send_paranoid_instructions: "Se o seu email existir em nosso banco de dados, você receberá um email com instruções para desbloquear sua conta em alguns minutos."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Agora você pode acessar o sistema."

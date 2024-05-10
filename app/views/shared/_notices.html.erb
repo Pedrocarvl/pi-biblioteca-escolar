@@ -1,0 +1,21 @@
+<% flash.each do |type, message| %>
+  <% if message.is_a?(String) %>
+    <div class="alert alert-dismissible" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Erros de Validação do Modelo -->
+<% if resource&.errors&.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Erros encontrados:</strong>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
