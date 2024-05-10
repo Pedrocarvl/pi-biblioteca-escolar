@@ -1,9 +1,15 @@
 class LivrosController < ApplicationController
-  before_action :set_livro, only: %i[ show edit update destroy ]
+  before_action :set_livro, only: %i[ show edit update destroy borrow return ]
 
   # GET /livros or /livros.json
   def index
-    @pagy, @livros = pagy(Livro.left_joins(:usuario_livros).where(usuario_livros: { returned_at: nil }).distinct)
+    @pagy, @livros = pagy(
+      Livro.left_joins(:usuario_livros)
+           .where(usuario_livros: { id: nil })
+           .or(Livro.left_joins(:usuario_livros).where.not(usuario_livros: { returned_at: nil }))
+           .distinct
+           .order(created_at: :desc)
+    )
   end
 
   # GET /livros/1 or /livros/1.json
@@ -55,6 +61,18 @@ class LivrosController < ApplicationController
       format.html { redirect_to livros_url, notice: "Livro foi excluído com sucesso." }
       format.json { head :no_content }
     end
+  end
+
+  def borrow
+    @livro.usuario_livros.create!(usuario: current_usuario, borrowed_at: Time.current)
+
+    redirect_to livros_usuarios_path, notice: "Livro foi emprestado com sucesso."
+  end
+
+  def return
+    @livro.usuario_livros.find_by!(returned_at: nil).update!(returned_at: Time.current)
+
+    redirect_to livros_usuarios_path, notice: "Livro foi devolvido com sucesso."
   end
 
   private

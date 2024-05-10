@@ -8,5 +8,14 @@
       <div class="datagrid-title">Descrição</div>
       <div class="datagrid-content"><%= livro.descricao %></div>
     </div>
+    <div class="datagrid-item">
+      <div class="datagrid-title">Disponibilidade</div>
+      <div class="datagrid-content">
+        <span class="badge bg-success">Disponível</span>
+      </div>
+    </div>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <%= button_to "Emprestar Livro", borrow_livro_path(livro), method: :put, class: "btn btn-primary", data: { turbo: false } %>
   </div>
 </div>

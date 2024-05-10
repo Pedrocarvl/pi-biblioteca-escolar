@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root "livros#index"
 
-  resources :livros
+  resources :livros do
+    member do
+      put :borrow
+      put :return
+    end
+  end
 
   devise_for :usuarios do
     collection do

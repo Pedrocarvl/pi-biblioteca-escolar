@@ -1,5 +1,9 @@
-<div class="container-xl mt-3">
+<div class="container mt-3">
+  <div class="row">
+    <%= render 'shared/notices', resource: current_usuario %>
+  </div>
   <div class="card">
+
     <div class="card-header">
       <h3 class="card-title">Meus Livros</h3>
     </div>
@@ -29,12 +33,17 @@
             <td colspan="4" class="text-center">Nenhum livro disponível</td>
           </tr>
         <% else %>
-          <% @livros.each do |livro| %>
+          <% @livros.each do |usuario_livro| %>
             <tr>
-              <td><%= livro.nome %></td>
-              <td><%= livro.descricao %></td>
-              <td><%= livro.borrowed_at ? l(livro.borrowed_at, format: :long) : "Não informado" %></td>
-              <td><%= livro.returned_at ? l(livro.returned_at, format: :long) : "Não devolvido" %></td>
+              <td><%= usuario_livro.livro.nome %></td>
+              <td><%= usuario_livro.livro.descricao %></td>
+              <td><%= usuario_livro.borrowed_at ? l(usuario_livro.borrowed_at, format: :long) : "Não informado" %></td>
+              <td>
+                <%= usuario_livro.returned_at ? l(usuario_livro.returned_at, format: :long) : "Não devolvido" %>
+                <% unless usuario_livro.returned_at %>
+                  <%= button_to 'Devolver Livro', return_livro_path(usuario_livro.livro), method: :put, class: 'btn btn-warning btn-sm', data: { turbo: false } %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         <% end %>
