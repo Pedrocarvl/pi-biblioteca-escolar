@@ -1,9 +1,19 @@
-<h1>New livro</h1>
+<div class="row align-items-center">
+  <div class="col">
+    <!-- Page pre-title -->
+    <div class="page-pretitle">
+      Form
+    </div>
+    <h2 class="page-title">
+      Novo livro
+    </h2>
+  </div>
+  <!-- Page title actions -->
+  <div class="col-auto ms-auto d-print-none">
+    <div class="btn-list">
+      <%= link_to "Voltar para livros", livros_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
 
 <%= render "form", livro: @livro %>
-
-<br>
-
-<div>
-  <%= link_to "Back to livros", livros_path %>
-</div>

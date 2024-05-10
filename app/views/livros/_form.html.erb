@@ -1,27 +1,30 @@
-<%= form_with(model: livro) do |form| %>
-  <% if livro.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
-
-      <ul>
-        <% livro.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="page-body">
+  <%= form_with(model: livro, html: { class: "card card-md" }, format: :html) do |form| %>
+      <div class="card-body">
+        <% if livro.errors.any? %>
+          <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading"><%= pluralize(livro.errors.count, "erro") %> impediu que este livro fosse salvo:</h4>
+            <ul>
+              <% livro.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_area :nome %>
-  </div>
+        <div class="mb-3">
+          <%= form.label :nome, 'Nome do Livro:', class: 'form-label' %>
+          <%= form.text_field :nome, class: 'form-control', placeholder: "Digite o nome do livro" %>
+        </div>
 
-  <div>
-    <%= form.label :descricao, style: "display: block" %>
-    <%= form.text_area :descricao %>
-  </div>
+        <div class="mb-3">
+          <%= form.label :descricao, 'Descrição:', class: 'form-label' %>
+          <%= form.text_area :descricao, class: 'form-control', placeholder: "Digite a descrição do livro", rows: 3 %>
+        </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+        <div class="form-footer">
+          <%= form.submit "Criar", class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+</div>

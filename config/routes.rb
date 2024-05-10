@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  root "livros#index"
+
   resources :livros
+
   devise_for :usuarios do
     collection do
       get :livros
@@ -13,7 +16,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root "livros#index"
 
   resources :usuarios, only: [] do
     collection do

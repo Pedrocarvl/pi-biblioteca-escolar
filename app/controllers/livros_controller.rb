@@ -29,11 +29,9 @@ class LivrosController < ApplicationController
 
     respond_to do |format|
       if @livro.save
-        format.html { redirect_to livro_url(@livro), notice: "Livro was successfully created." }
-        format.json { render :show, status: :created, location: @livro }
+        redirect_to livros_path, notice: "Livro foi criado com sucesso."
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @livro.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
     end
   end
@@ -42,7 +40,7 @@ class LivrosController < ApplicationController
   def update
     respond_to do |format|
       if @livro.update(livro_params)
-        format.html { redirect_to livro_url(@livro), notice: "Livro was successfully updated." }
+        format.html { redirect_to livro_url(@livro), notice: "Livro foi atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @livro }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +54,7 @@ class LivrosController < ApplicationController
     @livro.destroy!
 
     respond_to do |format|
-      format.html { redirect_to livros_url, notice: "Livro was successfully destroyed." }
+      format.html { redirect_to livros_url, notice: "Livro foi excluído com sucesso." }
       format.json { head :no_content }
     end
   end
