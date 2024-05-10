@@ -15,9 +15,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 development:
   <<: *default
@@ -80,5 +79,3 @@ test:
 production:
   <<: *default
   database: pi_biblioteca_escolar_production
-  username: pi_biblioteca_escolar
-  password: <%= ENV["PI_BIBLIOTECA_ESCOLAR_DATABASE_PASSWORD"] %>
