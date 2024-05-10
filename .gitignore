@@ -44,3 +44,4 @@
 /.DS_Store
 
 /config/database.yml
+/config/credentials/development.key
