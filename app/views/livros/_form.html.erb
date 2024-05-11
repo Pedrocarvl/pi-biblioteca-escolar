@@ -11,6 +11,10 @@
             </ul>
           </div>
         <% end %>
+        <div class="mb-3">
+        <%= form.label :image, 'Imagem' %>
+        <%= form.file_field :image %>
+        </div>
 
         <div class="mb-3">
           <%= form.label :nome, 'Nome do Livro:', class: 'form-label' %>

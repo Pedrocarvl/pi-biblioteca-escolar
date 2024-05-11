@@ -15,7 +15,9 @@
       </div>
     </div>
   </div>
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <%= button_to "Emprestar Livro", borrow_livro_path(livro), method: :put, class: "btn btn-primary", data: { turbo: false } %>
-  </div>
+  <% if current_usuario.user? %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <%= button_to "Emprestar Livro", borrow_livro_path(livro), method: :put, class: "btn btn-primary", data: { turbo: false } %>
+    </div>
+  <% end %>
 </div>
