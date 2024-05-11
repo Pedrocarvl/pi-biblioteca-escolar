@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       put :borrow
       put :return
     end
+    collection do
+      get :list
+    end
   end
 
   devise_for :usuarios do

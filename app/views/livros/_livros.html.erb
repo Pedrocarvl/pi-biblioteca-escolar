@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "livros" do %>
+  <div class="row row-cards">
+    <% livros.each do |livro| %>
+      <div class="col-sm-6 col-lg-4 mb-3">
+        <%= link_to livro_path(livro), data: { turbo_stream: true }, method: :get do %>
+          <div class="card card-sm">
+            <img src="https://preview.tabler.io/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" class="card-img-top">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div>
+                  <div><%= livro.nome %></div>
+                  <div class="text-secondary"><%= livro.descricao %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="card-footer d-flex align-items-center">
+    <p class="m-0 text-muted">Mostrando <span><%= @livros.size %></span> de <span><%= @pagy.count %></span> registros</p>
+    <ul class="pagination m-0 ms-auto">
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </ul>
+  </div>
+<% end %>

@@ -75,6 +75,21 @@ class LivrosController < ApplicationController
     redirect_to livros_usuarios_path, notice: "Livro foi devolvido com sucesso."
   end
 
+  def list
+    livros = Livro.left_joins(:usuario_livros)
+         .where(usuario_livros: { id: nil })
+         .or(Livro.left_joins(:usuario_livros).where.not(usuario_livros: { returned_at: nil }))
+         .distinct
+         .order(created_at: :desc)
+
+    columns = %w[livros.nome livros.descricao]
+    livros = livros.search_all_fields(params[:search], columns) if params[:search].present?
+
+    @pagy, @livros = pagy(livros)
+
+    render(partial: 'livros', locals: { livros: @livros })
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_livro
