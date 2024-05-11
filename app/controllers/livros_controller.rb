@@ -4,11 +4,10 @@ class LivrosController < ApplicationController
   # GET /livros or /livros.json
   def index
     @pagy, @livros = pagy(
-      Livro.left_joins(:usuario_livros)
-           .where(usuario_livros: { id: nil })
-           .or(Livro.left_joins(:usuario_livros).where.not(usuario_livros: { returned_at: nil }))
-           .distinct
-           .order(created_at: :desc)
+      Livro.where.not(
+        id: UsuarioLivro.select("first_value(livro_id) over (partition by livro_id order by created_at desc)")
+                        .where(returned_at: nil)
+      ).distinct.order(created_at: :desc)
     )
   end
 
