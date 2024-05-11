@@ -5,7 +5,7 @@
         <%= link_to livro_path(livro), data: { turbo_stream: true }, method: :get do %>
           <div class="card card-sm">
             <% if livro.image.attached? %>
-              <%= image_tag livro.image_as_thumbnail, class: "card-img-top" %>
+              <%= image_tag livro.image, class: "card-img-top", style: "max-height: 271px; object-fit: cover;" %>
             <% else %>
               <img src="https://preview.tabler.io/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" class="card-img-top" alt="Default Image">
             <% end %>
