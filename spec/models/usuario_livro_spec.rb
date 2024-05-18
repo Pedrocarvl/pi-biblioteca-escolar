@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UsuarioLivro, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:livro) }
+  it { should belong_to(:usuario) }
 end
