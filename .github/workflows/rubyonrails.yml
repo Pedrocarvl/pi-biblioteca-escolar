@@ -20,9 +20,7 @@ jobs:
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
-      COVERAGE: true
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
-      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY_TEST }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
