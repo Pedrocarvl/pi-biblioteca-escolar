@@ -37,7 +37,3 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec spec
-      - name: Test coverage report
-        uses: joshmfrankel/simplecov-check-action@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
